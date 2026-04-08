@@ -1,0 +1,1334 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roteiro - Cientistas Invisibilizadas</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        line-height: 1.6;
+        color: #1a1a1a;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8eef7 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 50px;
+        padding: 40px 20px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+      }
+
+      h1 {
+        font-size: 2.5em;
+        color: #2d3748;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .subtitle {
+        font-size: 1.1em;
+        color: #718096;
+        margin-bottom: 20px;
+      }
+
+      .badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: 500;
+      }
+
+      nav {
+        background: white;
+        padding: 0;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+        overflow-x: auto;
+      }
+
+      nav a {
+        flex: 1;
+        min-width: 150px;
+        padding: 16px 20px;
+        text-decoration: none;
+        color: #4a5568;
+        border-bottom: 3px solid transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        font-weight: 500;
+        border-right: 1px solid #e2e8f0;
+      }
+
+      nav a:last-child {
+        border-right: none;
+      }
+
+      nav a:hover {
+        color: #667eea;
+        background: #f7fafc;
+      }
+
+      nav a.active {
+        color: #667eea;
+        border-bottom-color: #667eea;
+        background: #f0f4ff;
+      }
+
+      section {
+        display: none;
+        animation: fadeIn 0.3s ease-in;
+      }
+
+      section.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .card {
+        background: white;
+        border-radius: 12px;
+        padding: 28px;
+        margin-bottom: 24px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        border-left: 4px solid #667eea;
+      }
+
+      .card h2 {
+        font-size: 1.8em;
+        color: #2d3748;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .card h3 {
+        font-size: 1.3em;
+        color: #2d3748;
+        margin: 24px 0 12px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .card p {
+        color: #4a5568;
+        margin-bottom: 12px;
+        line-height: 1.8;
+      }
+
+      .card ul {
+        margin-left: 24px;
+        color: #4a5568;
+      }
+
+      .card li {
+        margin-bottom: 10px;
+        line-height: 1.7;
+      }
+
+      .checklist {
+        background: #f7fafc;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      .checklist-item {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        margin-bottom: 10px;
+        background: white;
+        border-radius: 8px;
+        border-left: 3px solid #48bb78;
+      }
+
+      .checklist-item input {
+        width: 20px;
+        height: 20px;
+        margin-right: 16px;
+        cursor: pointer;
+        accent-color: #48bb78;
+      }
+
+      .checklist-item label {
+        flex: 1;
+        cursor: pointer;
+        color: #2d3748;
+        font-weight: 500;
+      }
+
+      .exemplo-box {
+        background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 24px 0;
+        border-left: 4px solid #d63031;
+      }
+
+      .exemplo-box h4 {
+        color: #d63031;
+        margin-bottom: 12px;
+        font-size: 1.1em;
+      }
+
+      .exemplo-box p {
+        color: #2d3748;
+        margin-bottom: 8px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      table th {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 16px;
+        text-align: left;
+        font-weight: 600;
+      }
+
+      table td {
+        padding: 14px 16px;
+        border-bottom: 1px solid #e2e8f0;
+        color: #2d3748;
+      }
+
+      table tr:hover {
+        background: #f7fafc;
+      }
+
+      table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .grupos-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+      .grupo-card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        border-top: 4px solid #667eea;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .grupo-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .grupo-num {
+        font-size: 0.9em;
+        color: #718096;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .grupo-cientista {
+        font-size: 1.3em;
+        color: #2d3748;
+        margin-bottom: 12px;
+        font-weight: 600;
+      }
+
+      .grupo-info {
+        color: #4a5568;
+        font-size: 0.95em;
+        margin-bottom: 12px;
+        line-height: 1.6;
+      }
+
+      .grupo-integrantes {
+        background: #f7fafc;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 0.9em;
+        color: #4a5568;
+      }
+
+      .grupo-integrantes .label-integrantes {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #2d3748;
+      }
+
+      .grupo-integrantes .nome-aluno {
+        display: block;
+        padding: 8px 12px;
+        margin-bottom: 6px;
+        background: white;
+        border-radius: 6px;
+        border-left: 3px solid #667eea;
+        color: #2d3748;
+        font-weight: 500;
+      }
+
+      .grupo-integrantes .nome-vazio {
+        display: block;
+        padding: 8px 12px;
+        margin-bottom: 6px;
+        background: #fff5f5;
+        border-radius: 6px;
+        border-left: 3px solid #e53e3e;
+        color: #e53e3e;
+        font-style: italic;
+        font-weight: 400;
+      }
+
+      .dica-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+      .dica-card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      .dica-card strong {
+        color: #667eea;
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1em;
+      }
+
+      .dica-card p {
+        color: #4a5568;
+        font-size: 0.95em;
+        line-height: 1.6;
+      }
+
+      .rubrica {
+        background: white;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      .rubrica-item {
+        padding: 16px;
+        border-bottom: 1px solid #e2e8f0;
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        gap: 20px;
+        align-items: start;
+      }
+
+      .rubrica-item:last-child {
+        border-bottom: none;
+      }
+
+      .rubrica-item h4 {
+        color: #2d3748;
+        margin-bottom: 8px;
+        font-size: 1em;
+      }
+
+      .rubrica-item p {
+        color: #718096;
+        font-size: 0.9em;
+        margin-bottom: 8px;
+      }
+
+      .pontos {
+        font-weight: 600;
+        color: #667eea;
+        text-align: right;
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px 20px;
+        color: #718096;
+        margin-top: 50px;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.8em;
+        }
+
+        nav {
+          flex-direction: column;
+        }
+
+        nav a {
+          border-right: none;
+          border-bottom: 1px solid #e2e8f0;
+        }
+
+        nav a.active {
+          border-left: 4px solid #667eea;
+          border-bottom: 1px solid #e2e8f0;
+        }
+
+        .grupos-container {
+          grid-template-columns: 1fr;
+        }
+        .dica-container {
+          grid-template-columns: 1fr;
+        }
+
+        .rubrica-item {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .pontos {
+          text-align: left;
+        }
+
+        table {
+          font-size: 0.9em;
+        }
+        table th,
+        table td {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🎬 Roteiro para Vídeo</h1>
+        <p class="subtitle">Cientistas Invisibilizadas</p>
+        <span class="badge">📚 Guia Completo do Aluno</span>
+      </header>
+
+      <nav>
+        <a class="nav-btn active" data-section="roteiro">Roteiro</a>
+        <a class="nav-btn" data-section="exemplo">Exemplo</a>
+        <a class="nav-btn" data-section="grupos-1serie">1ª Série</a>
+        <a class="nav-btn" data-section="grupos-2serie">2ª Série</a>
+        <a class="nav-btn" data-section="checklist">Checklist</a>
+        <a class="nav-btn" data-section="dicas">Dicas</a>
+        <a class="nav-btn" data-section="avaliacao">Avaliação</a>
+        <a class="nav-btn" data-section="referencias">Referências</a>
+      </nav>
+
+      <!-- SEÇÃO 1: ROTEIRO -->
+      <section id="roteiro" class="active">
+        <div class="card">
+          <h2>📌 O que você vai fazer?</h2>
+          <p>
+            Criar um vídeo de <strong>2 a 4 minutos</strong> sobre uma cientista
+            que fez história — mas que muitas vezes foi esquecida ou
+            invisibilizada.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>📋 Estrutura do Vídeo - 6 Partes</h2>
+          <p>Siga esta ordem:</p>
+
+          <h3>1️⃣ Abertura (5 a 10 segundos)</h3>
+          <ul>
+            <li>Dizer o nome da cientista</li>
+            <li>Fazer uma pergunta curiosa ou frase de impacto</li>
+            <li>
+              <strong>Dica:</strong> Algo que faça a pessoa querer continuar
+              assistindo.
+            </li>
+          </ul>
+
+          <h3>2️⃣ Quem foi ela? (20 a 30 segundos)</h3>
+          <ul>
+            <li>De que país era</li>
+            <li>Em que época viveu</li>
+            <li>Qual era a área de trabalho dela</li>
+          </ul>
+
+          <h3>3️⃣ O que ela descobriu ou fez? (30 a 60 segundos)</h3>
+          <ul>
+            <li>Explicar a descoberta de forma simples e clara</li>
+            <li>Usar comparações do dia a dia se possível</li>
+            <li>
+              <strong>Dica:</strong> Imagine que está explicando para alguém que
+              nunca estudou ciência.
+            </li>
+          </ul>
+
+          <h3>4️⃣ Dificuldades (20 a 40 segundos)</h3>
+          <p>Responda pelo menos uma dessas perguntas:</p>
+          <ul>
+            <li>Ela sofreu preconceito?</li>
+            <li>Alguém roubou o crédito do trabalho dela?</li>
+            <li>Que barreiras ela enfrentou?</li>
+          </ul>
+
+          <h3>5️⃣ Impacto Hoje (20 a 30 segundos)</h3>
+          <ul>
+            <li>Onde a descoberta dela aparece na vida real hoje</li>
+            <li>Como o trabalho dela mudou a ciência ou a sociedade</li>
+          </ul>
+
+          <h3>6️⃣ Fechamento (10 a 15 segundos)</h3>
+          <p>Escolha uma opção:</p>
+          <ul>
+            <li>Uma curiosidade final</li>
+            <li>Uma reflexão</li>
+            <li>Uma pergunta para o público pensar</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>📌 Regras Importantes</h2>
+          <table>
+            <tr>
+              <th>Regra</th>
+              <th>Detalhe</th>
+            </tr>
+            <tr>
+              <td>⏱️ Duração</td>
+              <td>Entre 2 e 4 minutos</td>
+            </tr>
+            <tr>
+              <td>📸 Imagem</td>
+              <td>Obrigatório pelo menos 1 foto real da cientista</td>
+            </tr>
+            <tr>
+              <td>✍️ Nome na tela</td>
+              <td>O nome da cientista deve aparecer escrito no vídeo</td>
+            </tr>
+            <tr>
+              <td>🗣️ Fala</td>
+              <td>Use suas próprias palavras — não leia o texto</td>
+            </tr>
+            <tr>
+              <td>👥 Grupo</td>
+              <td>Todos os integrantes devem participar do vídeo</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 2: EXEMPLO -->
+      <section id="exemplo">
+        <div class="card">
+          <h2>🎥 Exemplo Pronto - Vera Rubin</h2>
+          <p>
+            <em
+              >(Esta cientista não foi distribuída para nenhum grupo — use
+              apenas como referência, NÃO copie)</em
+            >
+          </p>
+
+          <h3>1️⃣ Abertura</h3>
+          <div class="exemplo-box">
+            <p>
+              "E se eu te dissesse que a maior parte do universo é feita de algo
+              que ninguém consegue ver?"
+            </p>
+          </div>
+
+          <h3>2️⃣ Quem foi</h3>
+          <p>
+            Vera Rubin foi uma astrônoma americana, nascida em 1928. Desde
+            criança era fascinada pelas estrelas. Numa época em que mulheres
+            eram desencorajadas de seguir carreira científica, ela insistiu e se
+            tornou uma das maiores astrônomas de todos os tempos.
+          </p>
+
+          <h3>3️⃣ O que ela fez</h3>
+          <p>
+            Vera estudou como as galáxias giram. Ela percebeu que as estrelas
+            nas bordas das galáxias se moviam rápido demais — tão rápido que
+            deveriam sair voando para o espaço. Mas não saíam. Isso só fazia
+            sentido se existisse algo invisível segurando tudo junto — uma
+            matéria que ninguém consegue ver, chamada
+            <strong>matéria escura</strong>.
+          </p>
+          <p>
+            É como se você visse uma pipa voando, mas não conseguisse enxergar o
+            fio que a segura. O fio está lá, você só não vê. Vera provou que
+            esse "fio invisível" existe no universo.
+          </p>
+
+          <h3>4️⃣ Dificuldades</h3>
+          <p>
+            Quando tentou entrar no mestrado em Princeton, foi rejeitada porque
+            mulheres não eram aceitas no programa de astronomia. Ao longo da
+            carreira, foi a única mulher em muitos ambientes. Colegas não a
+            levavam a sério. Mesmo com uma das maiores descobertas da
+            astronomia, nunca recebeu o Prêmio Nobel.
+          </p>
+
+          <h3>5️⃣ Impacto</h3>
+          <p>
+            Hoje sabemos que a matéria escura compõe cerca de 27% de todo o
+            universo. Sem o trabalho de Vera Rubin, não teríamos essa
+            compreensão. Toda a astrofísica moderna depende da descoberta dela.
+          </p>
+
+          <h3>6️⃣ Fechamento</h3>
+          <div class="exemplo-box">
+            <p>
+              "Ela provou que o que não conseguimos ver pode ser a maior parte
+              do que existe. Quantas outras descobertas invisíveis ainda estão
+              esperando para serem encontradas?"
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 3: GRUPOS - 1ª SÉRIE -->
+      <section id="grupos-1serie">
+        <div class="card">
+          <h2>👥 Grupos e Cientistas - 1ª Série</h2>
+          <p>
+            Veja abaixo qual cientista seu grupo da 1ª Série ficou responsável e
+            quem são os integrantes.
+          </p>
+        </div>
+        <div class="grupos-container" id="grupos-1serie-content"></div>
+      </section>
+
+      <!-- SEÇÃO 4: GRUPOS - 2ª SÉRIE -->
+      <section id="grupos-2serie">
+        <div class="card">
+          <h2>👥 Grupos e Cientistas - 2ª Série</h2>
+          <p>
+            Veja abaixo qual cientista seu grupo da 2ª Série ficou responsável e
+            quem são os integrantes.
+          </p>
+        </div>
+        <div class="grupos-container" id="grupos-2serie-content"></div>
+      </section>
+
+      <!-- SEÇÃO 4: CHECKLIST -->
+      <section id="checklist">
+        <div class="card">
+          <h2>✅ Checklist - Confira Antes de Gravar</h2>
+          <p>Marque cada item para garantir que seu vídeo tem tudo:</p>
+
+          <div class="checklist">
+            <div class="checklist-item">
+              <input type="checkbox" id="check1" />
+              <label for="check1"
+                >Abertura com nome + frase de impacto ou pergunta</label
+              >
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check2" />
+              <label for="check2"
+                >Explicou quem foi a cientista (país, época, área)</label
+              >
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check3" />
+              <label for="check3">Explicou a descoberta de forma simples</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check4" />
+              <label for="check4"
+                >Falou das dificuldades que ela enfrentou</label
+              >
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check5" />
+              <label for="check5">Mostrou o impacto no mundo hoje</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check6" />
+              <label for="check6"
+                >Fechamento com reflexão, curiosidade ou pergunta</label
+              >
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check7" />
+              <label for="check7"
+                >Tem pelo menos 1 foto real da cientista</label
+              >
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check8" />
+              <label for="check8"
+                >O nome da cientista aparece escrito na tela</label
+              >
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check9" />
+              <label for="check9">Todos do grupo participam falando</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check10" />
+              <label for="check10">O vídeo tem entre 2 e 4 minutos</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 5: DICAS -->
+      <section id="dicas">
+        <div class="card">
+          <h2>💡 Dicas Finais Para o Vídeo</h2>
+        </div>
+
+        <div class="dica-container">
+          <div class="dica-card">
+            <strong>📖 Use pelo menos 2 fontes</strong>
+            <p>
+              Não confie em uma fonte só. Pesquise em diferentes lugares para
+              ter informações mais confiáveis.
+            </p>
+          </div>
+          <div class="dica-card">
+            <strong>🗣️ Conte como uma história</strong>
+            <p>
+              Não leia — fale naturalmente. Pratique para soar como se estivesse
+              conversando com um amigo.
+            </p>
+          </div>
+          <div class="dica-card">
+            <strong>⏱️ Ensaie antes de gravar</strong>
+            <p>
+              Leia em voz alta e cronometre. Assim você conhece bem o texto e
+              sabe se está dentro do tempo.
+            </p>
+          </div>
+          <div class="dica-card">
+            <strong>🎨 Use imagens ou desenhos</strong>
+            <p>
+              Prende a atenção de quem assiste. Não deixe só áudio — mostre
+              fotos, diagramas, qualquer coisa visual.
+            </p>
+          </div>
+          <div class="dica-card">
+            <strong>🤝 Dividam as falas</strong>
+            <p>
+              Todos do grupo devem aparecer e falar no vídeo. Cada um fica com
+              uma ou duas partes.
+            </p>
+          </div>
+          <div class="dica-card">
+            <strong>🎤 Áudio claro</strong>
+            <p>
+              Fale bem perto do microfone, em um lugar silencioso. Áudio ruim
+              prejudica muito a avaliação.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 6: AVALIAÇÃO -->
+      <section id="avaliacao">
+        <div class="card">
+          <h2>📊 Como o Vídeo Será Avaliado</h2>
+          <p><strong>Total: 10 pontos</strong></p>
+        </div>
+
+        <div class="rubrica">
+          <div class="rubrica-item">
+            <div>
+              <h4>1. Abertura</h4>
+              <p>Tem frase de impacto ou pergunta? Prende a atenção?</p>
+            </div>
+            <div class="pontos">1,0 ponto</div>
+          </div>
+          <div class="rubrica-item">
+            <div>
+              <h4>2. Quem foi</h4>
+              <p>Informou país, época e área da cientista?</p>
+            </div>
+            <div class="pontos">1,0 ponto</div>
+          </div>
+          <div class="rubrica-item">
+            <div>
+              <h4>3. Descoberta</h4>
+              <p>Explicou o que ela fez de forma clara e simples?</p>
+            </div>
+            <div class="pontos">2,0 pontos</div>
+          </div>
+          <div class="rubrica-item">
+            <div>
+              <h4>4. Dificuldades</h4>
+              <p>Mostrou os obstáculos que ela enfrentou?</p>
+            </div>
+            <div class="pontos">1,5 ponto</div>
+          </div>
+          <div class="rubrica-item">
+            <div>
+              <h4>5. Impacto</h4>
+              <p>Conectou o trabalho dela com o mundo de hoje?</p>
+            </div>
+            <div class="pontos">1,0 ponto</div>
+          </div>
+          <div class="rubrica-item">
+            <div>
+              <h4>6. Fechamento</h4>
+              <p>Terminou com reflexão, curiosidade ou pergunta?</p>
+            </div>
+            <div class="pontos">0,5 ponto</div>
+          </div>
+          <div class="rubrica-item">
+            <div>
+              <h4>7. Imagem</h4>
+              <p>Tem pelo menos 1 foto real da cientista com nome escrito?</p>
+            </div>
+            <div class="pontos">1,0 ponto</div>
+          </div>
+          <div class="rubrica-item">
+            <div>
+              <h4>8. Participação</h4>
+              <p>Todos do grupo falaram no vídeo?</p>
+            </div>
+            <div class="pontos">1,0 ponto</div>
+          </div>
+          <div class="rubrica-item">
+            <div>
+              <h4>9. Tempo</h4>
+              <p>O vídeo tem entre 2 e 4 minutos?</p>
+            </div>
+            <div class="pontos">0,5 ponto</div>
+          </div>
+          <div class="rubrica-item">
+            <div>
+              <h4>10. Capricho</h4>
+              <p>Áudio claro, imagem ok, vídeo organizado?</p>
+            </div>
+            <div class="pontos">0,5 ponto</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>📋 Detalhamento de Cada Nota</h2>
+
+          <h3>Abertura (1,0 ponto)</h3>
+          <ul>
+            <li>
+              <strong>1,0:</strong> Abertura criativa, com pergunta ou frase que
+              prende a atenção
+            </li>
+            <li><strong>0,5:</strong> Tem abertura, mas é fraca ou genérica</li>
+            <li>
+              <strong>0,0:</strong> Não tem abertura, já começa falando direto
+            </li>
+          </ul>
+
+          <h3>Quem foi (1,0 ponto)</h3>
+          <ul>
+            <li>
+              <strong>1,0:</strong> Informou país, época e área de atuação
+            </li>
+            <li><strong>0,5:</strong> Faltou uma das informações</li>
+            <li><strong>0,0:</strong> Não apresentou a cientista</li>
+          </ul>
+
+          <h3>Descoberta (2,0 pontos)</h3>
+          <ul>
+            <li>
+              <strong>2,0:</strong> Explicou de forma clara, simples e usou
+              comparações
+            </li>
+            <li>
+              <strong>1,5:</strong> Explicou bem, mas sem comparações ou um
+              pouco confuso
+            </li>
+            <li><strong>1,0:</strong> Explicou de forma superficial</li>
+            <li><strong>0,5:</strong> Muito vago ou difícil de entender</li>
+            <li><strong>0,0:</strong> Não explicou a descoberta</li>
+          </ul>
+
+          <h3>Dificuldades (1,5 ponto)</h3>
+          <ul>
+            <li>
+              <strong>1,5:</strong> Mostrou claramente os obstáculos com
+              detalhes
+            </li>
+            <li>
+              <strong>1,0:</strong> Mencionou dificuldades, mas sem aprofundar
+            </li>
+            <li><strong>0,5:</strong> Citou rapidamente, sem explicar</li>
+            <li><strong>0,0:</strong> Não mencionou dificuldades</li>
+          </ul>
+
+          <h3>Impacto (1,0 ponto)</h3>
+          <ul>
+            <li>
+              <strong>1,0:</strong> Conectou o trabalho da cientista com a vida
+              real de hoje
+            </li>
+            <li><strong>0,5:</strong> Mencionou impacto, mas de forma vaga</li>
+            <li><strong>0,0:</strong> Não falou sobre impacto</li>
+          </ul>
+
+          <h3>Fechamento (0,5 ponto)</h3>
+          <ul>
+            <li>
+              <strong>0,5:</strong> Fechamento marcante com reflexão,
+              curiosidade ou pergunta
+            </li>
+            <li><strong>0,25:</strong> Tem fechamento, mas fraco</li>
+            <li>
+              <strong>0,0:</strong> Não tem fechamento — o vídeo simplesmente
+              acaba
+            </li>
+          </ul>
+
+          <h3>Imagem (1,0 ponto)</h3>
+          <ul>
+            <li>
+              <strong>1,0:</strong> Foto real da cientista + nome escrito na
+              tela
+            </li>
+            <li><strong>0,5:</strong> Tem foto OU nome, mas não os dois</li>
+            <li><strong>0,0:</strong> Não tem foto nem nome na tela</li>
+          </ul>
+
+          <h3>Participação (1,0 ponto)</h3>
+          <ul>
+            <li><strong>1,0:</strong> Todos os integrantes falam no vídeo</li>
+            <li>
+              <strong>0,5:</strong> A maioria fala, mas alguém ficou de fora
+            </li>
+            <li><strong>0,0:</strong> Só uma pessoa fala</li>
+          </ul>
+
+          <h3>Tempo (0,5 ponto)</h3>
+          <ul>
+            <li><strong>0,5:</strong> Entre 2 e 4 minutos</li>
+            <li>
+              <strong>0,25:</strong> Passou um pouco (até 4:30) ou ficou curto
+              (1:30–2:00)
+            </li>
+            <li><strong>0,0:</strong> Menos de 1:30 ou mais de 5 minutos</li>
+          </ul>
+
+          <h3>Capricho (0,5 ponto)</h3>
+          <ul>
+            <li>
+              <strong>0,5:</strong> Áudio claro, imagem ok, vídeo organizado
+            </li>
+            <li>
+              <strong>0,25:</strong> Dá para entender, mas com problemas de
+              áudio ou imagem
+            </li>
+            <li>
+              <strong>0,0:</strong> Áudio incompreensível ou vídeo muito
+              desorganizado
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 7: REFERÊNCIAS -->
+      <section id="referencias">
+        <div class="card">
+          <h2>📸 Onde Encontrar Imagens</h2>
+          <table>
+            <tr>
+              <th>Fonte</th>
+              <th>Site</th>
+            </tr>
+            <tr>
+              <td>Google Imagens</td>
+              <td>Buscar o nome da cientista</td>
+            </tr>
+            <tr>
+              <td>Wikimedia Commons</td>
+              <td>commons.wikimedia.org</td>
+            </tr>
+            <tr>
+              <td>Site do Nobel</td>
+              <td>nobelprize.org</td>
+            </tr>
+            <tr>
+              <td>Reportagens</td>
+              <td>Buscar nome + "cientista" no Google</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>📚 Dicas de Pesquisa</h2>
+          <ul>
+            <li>
+              <strong>Use pelo menos 2 fontes</strong> — Não confie em uma fonte
+              só
+            </li>
+            <li>
+              <strong>Busque Wikipedia em português</strong> — Tem informações
+              confiáveis sobre a maioria das cientistas
+            </li>
+            <li>
+              <strong>Procure por reportagens</strong> — Buscar "[Nome da
+              cientista] + cientista" no Google
+            </li>
+            <li>
+              <strong>Verifique a data</strong> — Prefira informações mais
+              recentes e atualizadas
+            </li>
+            <li>
+              <strong>Anote as fontes</strong> — Guarde o link para referência
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>
+        <p>🎓 Guia do Aluno - Projeto Científicas Invisibilizadas</p>
+      </footer>
+    </div>
+
+    <script>
+      // =============================================
+      // 📌 DADOS DOS GRUPOS — EDITE OS NOMES AQUI
+      // =============================================
+      // Para adicionar os nomes dos alunos:
+      // Substitua "" por "Nome do Aluno"
+      // Exemplo: integrantes: ["João Silva", "Maria Santos"]
+      // =============================================
+
+      const grupos1serie = [
+        {
+          num: 1,
+          formato: "Dupla",
+          cientista: "Tatiana Coelho de Sampaio",
+          pais: "🇧🇷 Brasil",
+          bloco: "Brasileira",
+          integrantes: ["", ""],
+        },
+        {
+          num: 2,
+          formato: "Dupla",
+          cientista: "Sônia Guimarães",
+          pais: "🇧🇷 Brasil",
+          bloco: "Brasileira/Negra",
+          integrantes: ["", ""],
+        },
+        {
+          num: 3,
+          formato: "Dupla",
+          cientista: "Joana D'Arc Félix de Souza",
+          pais: "🇧🇷 Brasil",
+          bloco: "Brasileira/Negra",
+          integrantes: ["", ""],
+        },
+        {
+          num: 4,
+          formato: "Dupla",
+          cientista: "Marianne Ferreira",
+          pais: "🇧🇷 Brasil",
+          bloco: "Brasileira",
+          integrantes: ["", ""],
+        },
+        {
+          num: 5,
+          formato: "Dupla",
+          cientista: "Katherine Johnson",
+          pais: "🇺🇸 EUA",
+          bloco: "Negra",
+          integrantes: ["", ""],
+        },
+        {
+          num: 6,
+          formato: "Dupla",
+          cientista: "Alice Ball",
+          pais: "🇺🇸 EUA",
+          bloco: "Negra",
+          integrantes: ["", ""],
+        },
+        {
+          num: 7,
+          formato: "Dupla",
+          cientista: "Mae C. Jemison",
+          pais: "🇺🇸 EUA",
+          bloco: "Negra",
+          integrantes: ["", ""],
+        },
+        {
+          num: 8,
+          formato: "Dupla",
+          cientista: "Gladys West",
+          pais: "🇺🇸 EUA",
+          bloco: "Negra",
+          integrantes: ["", ""],
+        },
+        {
+          num: 9,
+          formato: "Dupla",
+          cientista: "Wangari Maathai",
+          pais: "🇰🇪 Quênia",
+          bloco: "Negra",
+          integrantes: ["", ""],
+        },
+        {
+          num: 10,
+          formato: "Dupla",
+          cientista: "Marie Maynard Daly",
+          pais: "🇺🇸 EUA",
+          bloco: "Negra",
+          integrantes: ["", ""],
+        },
+        {
+          num: 11,
+          formato: "Dupla",
+          cientista: "Marie-Anne Paulze Lavoisier",
+          pais: "🇫🇷 França",
+          bloco: "Invisibilizada",
+          integrantes: ["", ""],
+        },
+        {
+          num: 12,
+          formato: "Dupla",
+          cientista: "Clara Immerwahr",
+          pais: "🇩🇪 Alemanha",
+          bloco: "Invisibilizada",
+          integrantes: ["", ""],
+        },
+        {
+          num: 13,
+          formato: "Dupla",
+          cientista: "Kathleen Lonsdale",
+          pais: "🇬🇧 Irlanda/Reino Unido",
+          bloco: "Invisibilizada",
+          integrantes: ["", ""],
+        },
+        {
+          num: 14,
+          formato: "Dupla",
+          cientista: "Ida Noddack",
+          pais: "🇩🇪 Alemanha",
+          bloco: "Invisibilizada",
+          integrantes: ["", ""],
+        },
+        {
+          num: 15,
+          formato: "Trio",
+          cientista: "Shirley Ann Jackson",
+          pais: "🇺🇸 EUA",
+          bloco: "Negra",
+          integrantes: ["", "", ""],
+        },
+        {
+          num: 16,
+          formato: "Trio",
+          cientista: "Quarraisha Abdool Karim",
+          pais: "🇿🇦 África do Sul",
+          bloco: "Negra",
+          integrantes: ["", "", ""],
+        },
+        {
+          num: 17,
+          formato: "Trio",
+          cientista: "Ellen Swallow Richards",
+          pais: "🇺🇸 EUA",
+          bloco: "Invisibilizada",
+          integrantes: ["", "", ""],
+        },
+        {
+          num: 18,
+          formato: "Trio",
+          cientista: "Edith Flanigen",
+          pais: "🇺🇸 EUA",
+          bloco: "Invisibilizada",
+          integrantes: ["", "", ""],
+        },
+      ];
+
+      const grupos2serie = [
+        {
+          num: 1,
+          formato: "Trio",
+          cientista: "Tebello Nyokong",
+          pais: "🇿🇦 Lesoto/África do Sul",
+          bloco: "Negra",
+          integrantes: ["", "", ""],
+        },
+        {
+          num: 2,
+          formato: "Trio",
+          cientista: "Segenet Kelemu",
+          pais: "🇪🇹 Etiópia",
+          bloco: "Negra",
+          integrantes: ["", "", ""],
+        },
+        {
+          num: 3,
+          formato: "Trio",
+          cientista: "Francisca Nneka Okeke",
+          pais: "🇳🇬 Nigéria",
+          bloco: "Negra",
+          integrantes: ["", "", ""],
+        },
+        {
+          num: 4,
+          formato: "Trio",
+          cientista: "Nashwa Eassa",
+          pais: "🇸🇩 Sudão",
+          bloco: "Negra",
+          integrantes: ["", "", ""],
+        },
+        {
+          num: 5,
+          formato: "Dupla",
+          cientista: "Marguerite Perey",
+          pais: "🇫🇷 França",
+          bloco: "Invisibilizada",
+          integrantes: ["", ""],
+        },
+        {
+          num: 6,
+          formato: "Dupla",
+          cientista: "Agnes Pockels",
+          pais: "🇩🇪 Alemanha",
+          bloco: "Invisibilizada",
+          integrantes: ["", ""],
+        },
+        {
+          num: 7,
+          formato: "Dupla",
+          cientista: "Harriet Brooks",
+          pais: "🇨🇦 Canadá",
+          bloco: "Invisibilizada",
+          integrantes: ["", ""],
+        },
+        {
+          num: 8,
+          formato: "Quarteto",
+          cientista: "Julia Lermontova",
+          pais: "🇷🇺 Rússia",
+          bloco: "Invisibilizada",
+          integrantes: ["", "", "", ""],
+        },
+      ];
+
+      // =============================================
+      // 🔧 FUNÇÃO QUE MONTA OS CARDS (NÃO MEXER)
+      // =============================================
+      function renderGrupos(grupos, containerId) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = grupos
+          .map((grupo) => {
+            let nomesHTML = "";
+            grupo.integrantes.forEach((nome, index) => {
+              if (nome && nome.trim() !== "") {
+                nomesHTML += `<span class="nome-aluno">👤 ${nome}</span>`;
+              } else {
+                nomesHTML += `<span class="nome-vazio">⚠️ Integrante ${index + 1} — a definir</span>`;
+              }
+            });
+
+            let blocoEmoji = "";
+            if (grupo.bloco.includes("Brasileira")) blocoEmoji = "🇧🇷";
+            else if (grupo.bloco.includes("Negra")) blocoEmoji = "✊🏿";
+            else blocoEmoji = "🟡";
+
+            return `
+                    <div class="grupo-card">
+                        <div class="grupo-num">Grupo ${grupo.num} • ${grupo.formato} ${blocoEmoji}</div>
+                        <div class="grupo-cientista">${grupo.cientista}</div>
+                        <div class="grupo-info">${grupo.pais} • ${grupo.bloco}</div>
+                        <div class="grupo-integrantes">
+                            <span class="label-integrantes">👥 Integrantes:</span>
+                            ${nomesHTML}
+                        </div>
+                    </div>
+                `;
+          })
+          .join("");
+      }
+
+      // Renderizar grupos
+      renderGrupos(grupos1serie, "grupos-1serie-content");
+      renderGrupos(grupos2serie, "grupos-2serie-content");
+
+      // Navegação entre seções
+      document.querySelectorAll(".nav-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const sectionId = btn.dataset.section;
+          document
+            .querySelectorAll(".nav-btn")
+            .forEach((b) => b.classList.remove("active"));
+          document
+            .querySelectorAll("section")
+            .forEach((s) => s.classList.remove("active"));
+          btn.classList.add("active");
+          document.getElementById(sectionId).classList.add("active");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+
+      // Salvar checklist localmente
+      document.querySelectorAll(".checklist-item input").forEach((checkbox) => {
+        checkbox.addEventListener("change", () => {
+          const checklists = Array.from(
+            document.querySelectorAll(".checklist-item input"),
+          ).map((c) => c.checked);
+          localStorage.setItem("checklist", JSON.stringify(checklists));
+        });
+      });
+
+      const savedChecklist = localStorage.getItem("checklist");
+      if (savedChecklist) {
+        const checklists = JSON.parse(savedChecklist);
+        document
+          .querySelectorAll(".checklist-item input")
+          .forEach((checkbox, index) => {
+            checkbox.checked = checklists[index];
+          });
+      }
+    </script>
+  </body>
+</html>

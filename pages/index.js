@@ -1,10 +1,19 @@
-function Home() {
-  return (
-    <header>
-      <h1>Nínguem é tão grande que não possa aprender.🧠</h1>{" "}
-      <h6>Nem tão pequeno, que não possa ensinar!🧑‍🏫</h6>
-    </header>
-  );
+import fs from "fs";
+import path from "path";
+
+function Home({ htmlContent }) {
+  return <main dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+}
+
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), "pages", "site.html");
+  const htmlContent = fs.readFileSync(filePath, "utf8");
+
+  return {
+    props: {
+      htmlContent,
+    },
+  };
 }
 
 export default Home;
