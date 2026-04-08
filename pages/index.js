@@ -54,14 +54,14 @@ export default function Home() {
     <main style={pageStyles}>
       <div style={containerStyles}>
         <section style={heroStyles}>
-          <span style={badgeStyles}>Portal de Conteudos</span>
+          <span style={badgeStyles}>Portal de Conteúdos</span>
           <h1
             style={{
               fontSize: "clamp(2.4rem, 6vw, 4.2rem)",
               marginBottom: "16px",
             }}
           >
-            Materiais e trabalhos em um so lugar
+            Materiais e trabalhos em um só lugar
           </h1>
           <p
             style={{
@@ -122,7 +122,7 @@ export default function Home() {
                 marginBottom: "18px",
               }}
             >
-              Reune os links publicos das aulas.
+              Reúne os links públicos das aulas.
             </p>
             <strong style={{ color: "#15803d" }}>Ver aulas</strong>
           </Link>

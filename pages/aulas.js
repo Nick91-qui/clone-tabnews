@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const aulas = [
   {
-    serie: "1ª serie",
+    serie: "1ª série",
     cor: "#2563eb",
     apresentacoes: [
       {
@@ -20,7 +20,7 @@ const aulas = [
     ],
   },
   {
-    serie: "2ª serie",
+    serie: "2ª série",
     cor: "#0891b2",
     apresentacoes: [
       {
@@ -32,7 +32,7 @@ const aulas = [
         url: "https://docs.google.com/presentation/d/1q0fxwDF6ta2xjziJUsQQG---UQv-edov/edit?usp=sharing&ouid=106621926854032891171&rtpof=true&sd=true",
       },
       {
-        titulo: "Balanceamento de equações químcas",
+        titulo: "Balanceamento de equações químicas",
         url: "https://docs.google.com/presentation/d/1zpqMtwo3vdAT3tSoZ0qWwy2IAQRzNIGl/edit?usp=sharing&ouid=106621926854032891171&rtpof=true&sd=true",
       },
       {
@@ -42,7 +42,7 @@ const aulas = [
     ],
   },
   {
-    serie: "3ª serie",
+    serie: "3ª série",
     cor: "#7c3aed",
     apresentacoes: [
       {
@@ -50,11 +50,11 @@ const aulas = [
         url: "https://docs.google.com/presentation/d/1YDsz6qp6XQFy2rUDGs7TnIsJMEG6Wtux/edit?usp=sharing&ouid=106621926854032891171&rtpof=true&sd=true",
       },
       {
-        titulo: "radioatividade e física nuclear",
+        titulo: "Radioatividade e física nuclear",
         url: "https://docs.google.com/presentation/d/1kyt-NNVkDuljkEGBkqD22_z73rThnRqG/edit?usp=sharing&ouid=106621926854032891171&rtpof=true&sd=true",
       },
       {
-        titulo: "Exercícios de meia vida",
+        titulo: "Exercícios de meia-vida",
         url: "https://docs.google.com/presentation/d/13gkdlRbLo5giTNPlZJeJXs7mk7xKDRpH/edit?usp=sharing&ouid=106621926854032891171&rtpof=true&sd=true",
       },
       {
@@ -99,7 +99,7 @@ export default function Aulas() {
             fontWeight: 700,
           }}
         >
-          Voltar para a pagina inicial
+          Voltar para a página inicial
         </Link>
 
         <section
@@ -122,7 +122,7 @@ export default function Aulas() {
               marginBottom: "16px",
             }}
           >
-            Aulas publicas
+            Aulas públicas
           </p>
           <h1
             style={{
@@ -130,7 +130,7 @@ export default function Aulas() {
               marginBottom: "12px",
             }}
           >
-            Apresentacoes por série
+            Apresentações por série
           </h1>
           <p
             style={{
@@ -140,8 +140,8 @@ export default function Aulas() {
               maxWidth: "760px",
             }}
           >
-            Cada bloco abaixo mostra os links do Google Apresentacoes e uma
-            pre-visualizacao incorporada para facilitar o acesso dos alunos.
+            Cada bloco abaixo mostra os links do Google Apresentações e uma
+            pré-visualização incorporada para facilitar o acesso dos alunos.
           </p>
         </section>
 
@@ -192,7 +192,7 @@ export default function Aulas() {
                         textDecoration: "none",
                       }}
                     >
-                      Abrir no Google Apresentacoes
+                      Abrir no Google Apresentações
                     </a>
                   </div>
 

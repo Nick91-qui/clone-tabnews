@@ -23,7 +23,7 @@ function Trabalhos({ htmlContent }) {
             fontWeight: 600,
           }}
         >
-          Voltar para a pagina inicial
+          Voltar para a página inicial
         </Link>
 
         <iframe
