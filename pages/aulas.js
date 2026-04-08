@@ -141,7 +141,7 @@ export default function Aulas() {
             }}
           >
             Cada bloco abaixo mostra os links do Google Apresentações e uma
-            pré-visualização incorporada para facilitar o acesso dos alunos.
+            pré-visualização incorporada para facilitar o acesso.
           </p>
         </section>
 
