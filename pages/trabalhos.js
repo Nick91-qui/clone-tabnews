@@ -154,8 +154,7 @@ const trabalhosPorSerie = [
 const pageStyles = {
   minHeight: "100vh",
   padding: "40px 20px 80px",
-  background:
-    "linear-gradient(180deg, #fff7ed 0%, #ffffff 40%, #eff6ff 100%)",
+  background: "linear-gradient(180deg, #fff7ed 0%, #ffffff 40%, #eff6ff 100%)",
   fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
   color: "#0f172a",
 };
