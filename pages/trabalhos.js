@@ -219,7 +219,9 @@ function GroupCards({ grupos }) {
 
 export default function Trabalhos() {
   const [activeSection, setActiveSection] = useState("roteiro");
-  const [checklist, setChecklist] = useState(() => checklistLabels.map(() => false));
+  const [checklist, setChecklist] = useState(() =>
+    checklistLabels.map(() => false),
+  );
 
   useEffect(() => {
     const savedChecklist = window.localStorage.getItem("checklist-trabalhos");
@@ -228,7 +230,10 @@ export default function Trabalhos() {
       try {
         const parsedChecklist = JSON.parse(savedChecklist);
 
-        if (Array.isArray(parsedChecklist) && parsedChecklist.length === checklistLabels.length) {
+        if (
+          Array.isArray(parsedChecklist) &&
+          parsedChecklist.length === checklistLabels.length
+        ) {
           setChecklist(parsedChecklist);
         }
       } catch {
@@ -238,7 +243,10 @@ export default function Trabalhos() {
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem("checklist-trabalhos", JSON.stringify(checklist));
+    window.localStorage.setItem(
+      "checklist-trabalhos",
+      JSON.stringify(checklist),
+    );
   }, [checklist]);
 
   const toggleChecklistItem = (index) => {
@@ -285,8 +293,9 @@ export default function Trabalhos() {
             <Card>
               <h2>📌 O que você vai fazer?</h2>
               <p>
-                Criar um vídeo de <strong>2 a 4 minutos</strong> sobre uma cientista
-                que fez história, mas que muitas vezes foi esquecida ou invisibilizada.
+                Criar um vídeo de <strong>2 a 4 minutos</strong> sobre uma
+                cientista que fez história, mas que muitas vezes foi esquecida
+                ou invisibilizada.
               </p>
             </Card>
 
@@ -298,7 +307,10 @@ export default function Trabalhos() {
               <ul>
                 <li>Dizer o nome da cientista</li>
                 <li>Fazer uma pergunta curiosa ou frase de impacto</li>
-                <li><strong>Dica:</strong> Algo que faça a pessoa querer continuar assistindo.</li>
+                <li>
+                  <strong>Dica:</strong> Algo que faça a pessoa querer continuar
+                  assistindo.
+                </li>
               </ul>
 
               <h3>2️⃣ Quem foi ela? (20 a 30 segundos)</h3>
@@ -312,7 +324,10 @@ export default function Trabalhos() {
               <ul>
                 <li>Explicar a descoberta de forma simples e clara</li>
                 <li>Usar comparações do dia a dia se possível</li>
-                <li><strong>Dica:</strong> Imagine que está explicando para alguém que nunca estudou ciência.</li>
+                <li>
+                  <strong>Dica:</strong> Imagine que está explicando para alguém
+                  que nunca estudou ciência.
+                </li>
               </ul>
 
               <h3>4️⃣ Dificuldades (20 a 40 segundos)</h3>
@@ -381,35 +396,59 @@ export default function Trabalhos() {
 
               <h3>1️⃣ Abertura</h3>
               <div className="exemplo-box">
-                <p>"E se eu te dissesse que a maior parte do universo é feita de algo que ninguém consegue ver?"</p>
+                <p>
+                  &quot;E se eu te dissesse que a maior parte do universo é
+                  feita de algo que ninguém consegue ver?&quot;
+                </p>
               </div>
 
               <h3>2️⃣ Quem foi</h3>
               <p>
-                Vera Rubin foi uma astrônoma americana, nascida em 1928. Desde criança era fascinada pelas estrelas. Numa época em que mulheres eram desencorajadas de seguir carreira científica, ela insistiu e se tornou uma das maiores astrônomas de todos os tempos.
+                Vera Rubin foi uma astrônoma americana, nascida em 1928. Desde
+                criança era fascinada pelas estrelas. Numa época em que mulheres
+                eram desencorajadas de seguir carreira científica, ela insistiu
+                e se tornou uma das maiores astrônomas de todos os tempos.
               </p>
 
               <h3>3️⃣ O que ela fez</h3>
               <p>
-                Vera estudou como as galáxias giram. Ela percebeu que as estrelas nas bordas das galáxias se moviam rápido demais, tão rápido que deveriam sair voando para o espaço. Mas não saíam. Isso só fazia sentido se existisse algo invisível segurando tudo junto, uma matéria que ninguém consegue ver, chamada <strong>matéria escura</strong>.
+                Vera estudou como as galáxias giram. Ela percebeu que as
+                estrelas nas bordas das galáxias se moviam rápido demais, tão
+                rápido que deveriam sair voando para o espaço. Mas não saíam.
+                Isso só fazia sentido se existisse algo invisível segurando tudo
+                junto, uma matéria que ninguém consegue ver, chamada{" "}
+                <strong>matéria escura</strong>.
               </p>
               <p>
-                É como se você visse uma pipa voando, mas não conseguisse enxergar o fio que a segura. O fio está lá, você só não vê. Vera provou que esse "fio invisível" existe no universo.
+                É como se você visse uma pipa voando, mas não conseguisse
+                enxergar o fio que a segura. O fio está lá, você só não vê. Vera
+                provou que esse &quot;fio invisível&quot; existe no universo.
               </p>
 
               <h3>4️⃣ Dificuldades</h3>
               <p>
-                Quando tentou entrar no mestrado em Princeton, foi rejeitada porque mulheres não eram aceitas no programa de astronomia. Ao longo da carreira, foi a única mulher em muitos ambientes. Colegas não a levavam a sério. Mesmo com uma das maiores descobertas da astronomia, nunca recebeu o Prêmio Nobel.
+                Quando tentou entrar no mestrado em Princeton, foi rejeitada
+                porque mulheres não eram aceitas no programa de astronomia. Ao
+                longo da carreira, foi a única mulher em muitos ambientes.
+                Colegas não a levavam a sério. Mesmo com uma das maiores
+                descobertas da astronomia, nunca recebeu o Prêmio Nobel.
               </p>
 
               <h3>5️⃣ Impacto</h3>
               <p>
-                Hoje sabemos que a matéria escura compõe cerca de 27% de todo o universo. Sem o trabalho de Vera Rubin, não teríamos essa compreensão. Toda a astrofísica moderna depende da descoberta dela.
+                Hoje sabemos que a matéria escura compõe cerca de 27% de todo o
+                universo. Sem o trabalho de Vera Rubin, não teríamos essa
+                compreensão. Toda a astrofísica moderna depende da descoberta
+                dela.
               </p>
 
               <h3>6️⃣ Fechamento</h3>
               <div className="exemplo-box">
-                <p>"Ela provou que o que não conseguimos ver pode ser a maior parte do que existe. Quantas outras descobertas invisíveis ainda estão esperando para serem encontradas?"</p>
+                <p>
+                  &quot;Ela provou que o que não conseguimos ver pode ser a
+                  maior parte do que existe. Quantas outras descobertas
+                  invisíveis ainda estão esperando para serem encontradas?&quot;
+                </p>
               </div>
             </Card>
           </section>
@@ -419,7 +458,10 @@ export default function Trabalhos() {
           <section>
             <Card>
               <h2>👥 Grupos e Cientistas - 1ª Série</h2>
-              <p>Veja abaixo qual cientista seu grupo da 1ª Série ficou responsável e quem são os integrantes.</p>
+              <p>
+                Veja abaixo qual cientista seu grupo da 1ª Série ficou
+                responsável e quem são os integrantes.
+              </p>
             </Card>
             <GroupCards grupos={grupos1serie} />
           </section>
@@ -429,7 +471,10 @@ export default function Trabalhos() {
           <section>
             <Card>
               <h2>👥 Grupos e Cientistas - 2ª Série</h2>
-              <p>Veja abaixo qual cientista seu grupo da 2ª Série ficou responsável e quem são os integrantes.</p>
+              <p>
+                Veja abaixo qual cientista seu grupo da 2ª Série ficou
+                responsável e quem são os integrantes.
+              </p>
             </Card>
             <GroupCards grupos={grupos2serie} />
           </section>
@@ -471,27 +516,45 @@ export default function Trabalhos() {
             <div className="dica-container">
               <div className="dica-card">
                 <strong>📖 Use pelo menos 2 fontes</strong>
-                <p>Não confie em uma fonte só. Pesquise em diferentes lugares para ter informações mais confiáveis.</p>
+                <p>
+                  Não confie em uma fonte só. Pesquise em diferentes lugares
+                  para ter informações mais confiáveis.
+                </p>
               </div>
               <div className="dica-card">
                 <strong>🗣️ Conte como uma história</strong>
-                <p>Não leia, fale naturalmente. Pratique para soar como se estivesse conversando com um amigo.</p>
+                <p>
+                  Não leia, fale naturalmente. Pratique para soar como se
+                  estivesse conversando com um amigo.
+                </p>
               </div>
               <div className="dica-card">
                 <strong>⏱️ Ensaie antes de gravar</strong>
-                <p>Leia em voz alta e cronometre. Assim você conhece bem o texto e sabe se está dentro do tempo.</p>
+                <p>
+                  Leia em voz alta e cronometre. Assim você conhece bem o texto
+                  e sabe se está dentro do tempo.
+                </p>
               </div>
               <div className="dica-card">
                 <strong>🎨 Use imagens ou desenhos</strong>
-                <p>Prende a atenção de quem assiste. Não deixe só áudio, mostre fotos, diagramas, qualquer coisa visual.</p>
+                <p>
+                  Prende a atenção de quem assiste. Não deixe só áudio, mostre
+                  fotos, diagramas, qualquer coisa visual.
+                </p>
               </div>
               <div className="dica-card">
                 <strong>🤝 Dividam as falas</strong>
-                <p>Todos do grupo devem aparecer e falar no vídeo. Cada um fica com uma ou duas partes.</p>
+                <p>
+                  Todos do grupo devem aparecer e falar no vídeo. Cada um fica
+                  com uma ou duas partes.
+                </p>
               </div>
               <div className="dica-card">
                 <strong>🎤 Áudio claro</strong>
-                <p>Fale bem perto do microfone, em um lugar silencioso. Áudio ruim prejudica muito a avaliação.</p>
+                <p>
+                  Fale bem perto do microfone, em um lugar silencioso. Áudio
+                  ruim prejudica muito a avaliação.
+                </p>
               </div>
             </div>
           </section>
@@ -501,21 +564,59 @@ export default function Trabalhos() {
           <section>
             <Card>
               <h2>📊 Como o Vídeo Será Avaliado</h2>
-              <p><strong>Total: 10 pontos</strong></p>
+              <p>
+                <strong>Total: 10 pontos</strong>
+              </p>
             </Card>
 
             <div className="rubrica">
               {[
-                ["1. Abertura", "Tem frase de impacto ou pergunta? Prende a atenção?", "1,0 ponto"],
-                ["2. Quem foi", "Informou país, época e área da cientista?", "1,0 ponto"],
-                ["3. Descoberta", "Explicou o que ela fez de forma clara e simples?", "2,0 pontos"],
-                ["4. Dificuldades", "Mostrou os obstáculos que ela enfrentou?", "1,5 ponto"],
-                ["5. Impacto", "Conectou o trabalho dela com o mundo de hoje?", "1,0 ponto"],
-                ["6. Fechamento", "Terminou com reflexão, curiosidade ou pergunta?", "0,5 ponto"],
-                ["7. Imagem", "Tem pelo menos 1 foto real da cientista com nome escrito?", "1,0 ponto"],
-                ["8. Participação", "Todos do grupo falaram no vídeo?", "1,0 ponto"],
+                [
+                  "1. Abertura",
+                  "Tem frase de impacto ou pergunta? Prende a atenção?",
+                  "1,0 ponto",
+                ],
+                [
+                  "2. Quem foi",
+                  "Informou país, época e área da cientista?",
+                  "1,0 ponto",
+                ],
+                [
+                  "3. Descoberta",
+                  "Explicou o que ela fez de forma clara e simples?",
+                  "2,0 pontos",
+                ],
+                [
+                  "4. Dificuldades",
+                  "Mostrou os obstáculos que ela enfrentou?",
+                  "1,5 ponto",
+                ],
+                [
+                  "5. Impacto",
+                  "Conectou o trabalho dela com o mundo de hoje?",
+                  "1,0 ponto",
+                ],
+                [
+                  "6. Fechamento",
+                  "Terminou com reflexão, curiosidade ou pergunta?",
+                  "0,5 ponto",
+                ],
+                [
+                  "7. Imagem",
+                  "Tem pelo menos 1 foto real da cientista com nome escrito?",
+                  "1,0 ponto",
+                ],
+                [
+                  "8. Participação",
+                  "Todos do grupo falaram no vídeo?",
+                  "1,0 ponto",
+                ],
                 ["9. Tempo", "O vídeo tem entre 2 e 4 minutos?", "0,5 ponto"],
-                ["10. Capricho", "Áudio claro, imagem ok, vídeo organizado?", "0,5 ponto"],
+                [
+                  "10. Capricho",
+                  "Áudio claro, imagem ok, vídeo organizado?",
+                  "0,5 ponto",
+                ],
               ].map(([titulo, descricao, pontos]) => (
                 <div className="rubrica-item" key={titulo}>
                   <div>
@@ -532,75 +633,154 @@ export default function Trabalhos() {
 
               <h3>Abertura (1,0 ponto)</h3>
               <ul>
-                <li><strong>1,0:</strong> Abertura criativa, com pergunta ou frase que prende a atenção</li>
-                <li><strong>0,5:</strong> Tem abertura, mas é fraca ou genérica</li>
-                <li><strong>0,0:</strong> Não tem abertura, já começa falando direto</li>
+                <li>
+                  <strong>1,0:</strong> Abertura criativa, com pergunta ou frase
+                  que prende a atenção
+                </li>
+                <li>
+                  <strong>0,5:</strong> Tem abertura, mas é fraca ou genérica
+                </li>
+                <li>
+                  <strong>0,0:</strong> Não tem abertura, já começa falando
+                  direto
+                </li>
               </ul>
 
               <h3>Quem foi (1,0 ponto)</h3>
               <ul>
-                <li><strong>1,0:</strong> Informou país, época e área de atuação</li>
-                <li><strong>0,5:</strong> Faltou uma das informações</li>
-                <li><strong>0,0:</strong> Não apresentou a cientista</li>
+                <li>
+                  <strong>1,0:</strong> Informou país, época e área de atuação
+                </li>
+                <li>
+                  <strong>0,5:</strong> Faltou uma das informações
+                </li>
+                <li>
+                  <strong>0,0:</strong> Não apresentou a cientista
+                </li>
               </ul>
 
               <h3>Descoberta (2,0 pontos)</h3>
               <ul>
-                <li><strong>2,0:</strong> Explicou de forma clara, simples e usou comparações</li>
-                <li><strong>1,5:</strong> Explicou bem, mas sem comparações ou um pouco confuso</li>
-                <li><strong>1,0:</strong> Explicou de forma superficial</li>
-                <li><strong>0,5:</strong> Muito vago ou difícil de entender</li>
-                <li><strong>0,0:</strong> Não explicou a descoberta</li>
+                <li>
+                  <strong>2,0:</strong> Explicou de forma clara, simples e usou
+                  comparações
+                </li>
+                <li>
+                  <strong>1,5:</strong> Explicou bem, mas sem comparações ou um
+                  pouco confuso
+                </li>
+                <li>
+                  <strong>1,0:</strong> Explicou de forma superficial
+                </li>
+                <li>
+                  <strong>0,5:</strong> Muito vago ou difícil de entender
+                </li>
+                <li>
+                  <strong>0,0:</strong> Não explicou a descoberta
+                </li>
               </ul>
 
               <h3>Dificuldades (1,5 ponto)</h3>
               <ul>
-                <li><strong>1,5:</strong> Mostrou claramente os obstáculos com detalhes</li>
-                <li><strong>1,0:</strong> Mencionou dificuldades, mas sem aprofundar</li>
-                <li><strong>0,5:</strong> Citou rapidamente, sem explicar</li>
-                <li><strong>0,0:</strong> Não mencionou dificuldades</li>
+                <li>
+                  <strong>1,5:</strong> Mostrou claramente os obstáculos com
+                  detalhes
+                </li>
+                <li>
+                  <strong>1,0:</strong> Mencionou dificuldades, mas sem
+                  aprofundar
+                </li>
+                <li>
+                  <strong>0,5:</strong> Citou rapidamente, sem explicar
+                </li>
+                <li>
+                  <strong>0,0:</strong> Não mencionou dificuldades
+                </li>
               </ul>
 
               <h3>Impacto (1,0 ponto)</h3>
               <ul>
-                <li><strong>1,0:</strong> Conectou o trabalho da cientista com a vida real de hoje</li>
-                <li><strong>0,5:</strong> Mencionou impacto, mas de forma vaga</li>
-                <li><strong>0,0:</strong> Não falou sobre impacto</li>
+                <li>
+                  <strong>1,0:</strong> Conectou o trabalho da cientista com a
+                  vida real de hoje
+                </li>
+                <li>
+                  <strong>0,5:</strong> Mencionou impacto, mas de forma vaga
+                </li>
+                <li>
+                  <strong>0,0:</strong> Não falou sobre impacto
+                </li>
               </ul>
 
               <h3>Fechamento (0,5 ponto)</h3>
               <ul>
-                <li><strong>0,5:</strong> Fechamento marcante com reflexão, curiosidade ou pergunta</li>
-                <li><strong>0,25:</strong> Tem fechamento, mas fraco</li>
-                <li><strong>0,0:</strong> Não tem fechamento, o vídeo simplesmente acaba</li>
+                <li>
+                  <strong>0,5:</strong> Fechamento marcante com reflexão,
+                  curiosidade ou pergunta
+                </li>
+                <li>
+                  <strong>0,25:</strong> Tem fechamento, mas fraco
+                </li>
+                <li>
+                  <strong>0,0:</strong> Não tem fechamento, o vídeo simplesmente
+                  acaba
+                </li>
               </ul>
 
               <h3>Imagem (1,0 ponto)</h3>
               <ul>
-                <li><strong>1,0:</strong> Foto real da cientista + nome escrito na tela</li>
-                <li><strong>0,5:</strong> Tem foto ou nome, mas não os dois</li>
-                <li><strong>0,0:</strong> Não tem foto nem nome na tela</li>
+                <li>
+                  <strong>1,0:</strong> Foto real da cientista + nome escrito na
+                  tela
+                </li>
+                <li>
+                  <strong>0,5:</strong> Tem foto ou nome, mas não os dois
+                </li>
+                <li>
+                  <strong>0,0:</strong> Não tem foto nem nome na tela
+                </li>
               </ul>
 
               <h3>Participação (1,0 ponto)</h3>
               <ul>
-                <li><strong>1,0:</strong> Todos os integrantes falam no vídeo</li>
-                <li><strong>0,5:</strong> A maioria fala, mas alguém ficou de fora</li>
-                <li><strong>0,0:</strong> Só uma pessoa fala</li>
+                <li>
+                  <strong>1,0:</strong> Todos os integrantes falam no vídeo
+                </li>
+                <li>
+                  <strong>0,5:</strong> A maioria fala, mas alguém ficou de fora
+                </li>
+                <li>
+                  <strong>0,0:</strong> Só uma pessoa fala
+                </li>
               </ul>
 
               <h3>Tempo (0,5 ponto)</h3>
               <ul>
-                <li><strong>0,5:</strong> Entre 2 e 4 minutos</li>
-                <li><strong>0,25:</strong> Passou um pouco (até 4:30) ou ficou curto (1:30-2:00)</li>
-                <li><strong>0,0:</strong> Menos de 1:30 ou mais de 5 minutos</li>
+                <li>
+                  <strong>0,5:</strong> Entre 2 e 4 minutos
+                </li>
+                <li>
+                  <strong>0,25:</strong> Passou um pouco (até 4:30) ou ficou
+                  curto (1:30-2:00)
+                </li>
+                <li>
+                  <strong>0,0:</strong> Menos de 1:30 ou mais de 5 minutos
+                </li>
               </ul>
 
               <h3>Capricho (0,5 ponto)</h3>
               <ul>
-                <li><strong>0,5:</strong> Áudio claro, imagem ok, vídeo organizado</li>
-                <li><strong>0,25:</strong> Dá para entender, mas com problemas de áudio ou imagem</li>
-                <li><strong>0,0:</strong> Áudio incompreensível ou vídeo muito desorganizado</li>
+                <li>
+                  <strong>0,5:</strong> Áudio claro, imagem ok, vídeo organizado
+                </li>
+                <li>
+                  <strong>0,25:</strong> Dá para entender, mas com problemas de
+                  áudio ou imagem
+                </li>
+                <li>
+                  <strong>0,0:</strong> Áudio incompreensível ou vídeo muito
+                  desorganizado
+                </li>
               </ul>
             </Card>
           </section>
@@ -632,7 +812,7 @@ export default function Trabalhos() {
                   </tr>
                   <tr>
                     <td>Reportagens</td>
-                    <td>Buscar nome + "cientista" no Google</td>
+                    <td>Buscar nome + cientista no Google</td>
                   </tr>
                 </tbody>
               </table>
@@ -641,11 +821,26 @@ export default function Trabalhos() {
             <Card>
               <h2>📚 Dicas de Pesquisa</h2>
               <ul>
-                <li><strong>Use pelo menos 2 fontes</strong> - Não confie em uma fonte só</li>
-                <li><strong>Busque Wikipedia em português</strong> - Tem informações confiáveis sobre a maioria das cientistas</li>
-                <li><strong>Procure por reportagens</strong> - Buscar "[Nome da cientista] + cientista" no Google</li>
-                <li><strong>Verifique a data</strong> - Prefira informações mais recentes e atualizadas</li>
-                <li><strong>Anote as fontes</strong> - Guarde o link para referência</li>
+                <li>
+                  <strong>Use pelo menos 2 fontes</strong> - Não confie em uma
+                  fonte só
+                </li>
+                <li>
+                  <strong>Busque Wikipedia em português</strong> - Tem
+                  informações confiáveis sobre a maioria das cientistas
+                </li>
+                <li>
+                  <strong>Procure por reportagens</strong> - Buscar &quot;[Nome
+                  da cientista] + cientista&quot; no Google
+                </li>
+                <li>
+                  <strong>Verifique a data</strong> - Prefira informações mais
+                  recentes e atualizadas
+                </li>
+                <li>
+                  <strong>Anote as fontes</strong> - Guarde o link para
+                  referência
+                </li>
               </ul>
             </Card>
           </section>
@@ -661,7 +856,8 @@ export default function Trabalhos() {
           min-height: 100vh;
           background: linear-gradient(135deg, #f5f7fa 0%, #e8eef7 100%);
           padding: 20px;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+          font-family:
+            -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
             Ubuntu, Cantarell, sans-serif;
           color: #1a1a1a;
         }
@@ -893,7 +1089,9 @@ export default function Trabalhos() {
 
         .grupo-card {
           border-top: 4px solid #667eea;
-          transition: transform 0.2s, box-shadow 0.2s;
+          transition:
+            transform 0.2s,
+            box-shadow 0.2s;
         }
 
         .grupo-card:hover {
