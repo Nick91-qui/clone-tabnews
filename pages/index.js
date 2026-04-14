@@ -55,14 +55,14 @@ export default function Home() {
       <div style={containerStyles}>
         <section style={heroStyles}>
           <span style={badgeStyles}>Portal de Conteúdos</span>
-          <h1
+          <h2
             style={{
               fontSize: "clamp(2.4rem, 6vw, 4.2rem)",
               marginBottom: "16px",
             }}
           >
             Materiais e trabalhos em um só lugar
-          </h1>
+          </h2>
           <p
             style={{
               fontSize: "1.1rem",
