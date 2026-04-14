@@ -1,131 +1,153 @@
 import Link from "next/link";
+import { useState } from "react";
 
-const trabalhos = [
+const trabalhosPorSerie = [
   {
-    cientista: "Tatiana Coelho de Sampaio",
-    pais: "Brasil",
-    categoria: "Brasileira",
-    emoji: "🇧🇷",
-    alunos: ["Isaque M", "Gustavo", "Adrian"],
+    serie: "1ª série",
+    cor: "#7c3aed",
+    trabalhos: [
+      {
+        cientista: "Tatiana Coelho de Sampaio",
+        pais: "Brasil",
+        alunos: ["Isaque Magri", "Gustavo", "Adrian"],
+      },
+      {
+        cientista: "Sônia Guimarães",
+        pais: "Brasil",
+        alunos: ["Yasmin", "Livia"],
+      },
+      {
+        cientista: "Joana D'Arc Félix de Souza",
+        pais: "Brasil",
+        alunos: ["Alberto", "Leonardo", "Rafael"],
+      },
+      {
+        cientista: "Marianne Ferreira",
+        pais: "Brasil",
+        alunos: ["Samuel", "Brian", "Caua"],
+      },
+      {
+        cientista: "Katherine Johnson",
+        pais: "EUA",
+        alunos: ["Sophia", "Heloisa", "Davi"],
+      },
+      {
+        cientista: "Alice Ball",
+        pais: "EUA",
+        alunos: ["Nycolle", "Juliana Burgos"],
+      },
+      {
+        cientista: "Mae C. Jemison",
+        pais: "EUA",
+        alunos: ["Lucio", "Christian"],
+      },
+      {
+        cientista: "Gladys West",
+        pais: "EUA",
+        alunos: ["Mario"],
+      },
+      {
+        cientista: "Wangari Maathai",
+        pais: "Quênia",
+        alunos: ["Fernanda", "Rafaela"],
+      },
+      {
+        cientista: "Marie Maynard Daly",
+        pais: "EUA",
+        alunos: ["Mateus", "Aquiles"],
+      },
+      {
+        cientista: "Marie-Anne Paulze Lavoisier",
+        pais: "França",
+        alunos: ["Maria Eduarda", "Breno", "Enzo"],
+      },
+      {
+        cientista: "Clara Immerwahr",
+        pais: "Alemanha",
+        alunos: ["Victor", "Ana Luiza Efgen"],
+      },
+      {
+        cientista: "Kathleen Lonsdale",
+        pais: "Irlanda/Reino Unido",
+        alunos: ["Amanda", "Betina", "Julia"],
+      },
+      {
+        cientista: "Ida Noddack",
+        pais: "Alemanha",
+        alunos: ["Juliana Ribeiro", "Maria Bisi"],
+      },
+      {
+        cientista: "Shirley Ann Jackson",
+        pais: "EUA",
+        alunos: [],
+      },
+      {
+        cientista: "Quarraisha Abdool Karim",
+        pais: "África do Sul",
+        alunos: ["Gabriel", "Maria Luiza de Freitas"],
+      },
+      {
+        cientista: "Ellen Swallow Richards",
+        pais: "EUA",
+        alunos: [],
+      },
+      {
+        cientista: "Edith Flanigen",
+        pais: "EUA",
+        alunos: [],
+      },
+    ],
   },
   {
-    cientista: "Sonia Guimaraes",
-    pais: "Brasil",
-    categoria: "Brasileira/Negra",
-    emoji: "🇧🇷",
-    alunos: ["Yasmin", "Livia"],
-  },
-  {
-    cientista: "Joana D'Arc Felix de Souza",
-    pais: "Brasil",
-    categoria: "Brasileira/Negra",
-    emoji: "🇧🇷",
-    alunos: ["Alberto", "Leonardo", "Rafael"],
-  },
-  {
-    cientista: "Marianne Ferreira",
-    pais: "Brasil",
-    categoria: "Brasileira",
-    emoji: "🇧🇷",
-    alunos: ["Samuel", "Brian", "Caua"],
-  },
-  {
-    cientista: "Katherine Johnson",
-    pais: "EUA",
-    categoria: "Negra",
-    emoji: "✊🏿",
-    alunos: ["Sophia", "Heloisa", "Davi"],
-  },
-  {
-    cientista: "Alice Ball",
-    pais: "EUA",
-    categoria: "Negra",
-    emoji: "✊🏿",
-    alunos: ["Nycolle", "Juliana B"],
-  },
-  {
-    cientista: "Mae C. Jemison",
-    pais: "EUA",
-    categoria: "Negra",
-    emoji: "✊🏿",
-    alunos: ["Lucio", "Christian"],
-  },
-  {
-    cientista: "Gladys West",
-    pais: "EUA",
-    categoria: "Negra",
-    emoji: "✊🏿",
-    alunos: ["Mario"],
-  },
-  {
-    cientista: "Wangari Maathai",
-    pais: "Quenia",
-    categoria: "Negra",
-    emoji: "✊🏿",
-    alunos: ["Fernanda", "Rafaela"],
-  },
-  {
-    cientista: "Marie Maynard Daly",
-    pais: "EUA",
-    categoria: "Negra",
-    emoji: "✊🏿",
-    alunos: ["Mateus", "Aquiles"],
-  },
-  {
-    cientista: "Marie-Anne Paulze Lavoisier",
-    pais: "Franca",
-    categoria: "Invisibilizada",
-    emoji: "🟡",
-    alunos: ["Maria Eduarda", "Breno", "Enzo"],
-  },
-  {
-    cientista: "Clara Immerwahr",
-    pais: "Alemanha",
-    categoria: "Invisibilizada",
-    emoji: "🟡",
-    alunos: ["Victor", "Ana L E"],
-  },
-  {
-    cientista: "Kathleen Lonsdale",
-    pais: "Irlanda/Reino Unido",
-    categoria: "Invisibilizada",
-    emoji: "🟡",
-    alunos: ["Amanda", "Betina", "Julia"],
-  },
-  {
-    cientista: "Ida Noddack",
-    pais: "Alemanha",
-    categoria: "Invisibilizada",
-    emoji: "🟡",
-    alunos: ["Juliana Ribeiro", "Maria Bisi"],
-  },
-  {
-    cientista: "Shirley Ann Jackson",
-    pais: "EUA",
-    categoria: "Negra",
-    emoji: "✊🏿",
-    alunos: [],
-  },
-  {
-    cientista: "Quarraisha Abdool Karim",
-    pais: "Africa do Sul",
-    categoria: "Negra",
-    emoji: "✊🏿",
-    alunos: ["Gabriel", "Maria L F"],
-  },
-  {
-    cientista: "Ellen Swallow Richards",
-    pais: "EUA",
-    categoria: "Invisibilizada",
-    emoji: "🟡",
-    alunos: [],
-  },
-  {
-    cientista: "Edith Flanigen",
-    pais: "EUA",
-    categoria: "Invisibilizada",
-    emoji: "🟡",
-    alunos: [],
+    serie: "2ª série",
+    cor: "#0891b2",
+    trabalhos: [
+      {
+        cientista: "Tebello Nyokong",
+        pais: "Lesoto/África do Sul",
+        alunos: ["Ana Melo", "Anna clara", "Kelvin"],
+      },
+      {
+        cientista: "Segenet Kelemu",
+        pais: "Etiópia",
+        alunos: ["Victor"],
+      },
+      {
+        cientista: "Francisca Nneka Okeke",
+        pais: "Nigéria",
+        alunos: ["Alexandra", "Ana Luisa", "Rebeca"],
+      },
+      {
+        cientista: "Nashwa Eassa",
+        pais: "Sudão",
+        alunos: ["Adriana", "Kaian", "Isabel"],
+      },
+      {
+        cientista: "Marguerite Perey",
+        pais: "França",
+        alunos: ["Maria Luiza", "Lara"],
+      },
+      {
+        cientista: "Agnes Pockels",
+        pais: "Alemanha",
+        alunos: ["Pedro", "Marília", "Maria vitoria", "Gabriela"],
+      },
+      {
+        cientista: "Harriet Brooks",
+        pais: "Canadá",
+        alunos: ["Gustavo", "Alice", "Ursula"],
+      },
+      {
+        cientista: "Julia Lermontova",
+        pais: "Rússia",
+        alunos: ["Aidan", "Julia", "Hadassa", "Joaquim"],
+      },
+      {
+        cientista: "Vera Rubin",
+        pais: "EUA",
+        alunos: ["Álvaro"],
+      },
+    ],
   },
 ];
 
@@ -142,7 +164,7 @@ const containerStyles = {
   margin: "0 auto",
 };
 
-const cardStyles = {
+const heroStyles = {
   background: "rgba(255, 255, 255, 0.94)",
   borderRadius: "28px",
   padding: "36px 28px",
@@ -160,6 +182,13 @@ const badgeStyles = {
   marginBottom: "16px",
 };
 
+const tabsStyles = {
+  display: "flex",
+  gap: "12px",
+  flexWrap: "wrap",
+  marginBottom: "24px",
+};
+
 const gridStyles = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
@@ -167,6 +196,11 @@ const gridStyles = {
 };
 
 export default function Trabalhos() {
+  const [serieAtiva, setSerieAtiva] = useState(trabalhosPorSerie[0].serie);
+  const grupoAtivo =
+    trabalhosPorSerie.find((grupo) => grupo.serie === serieAtiva) ||
+    trabalhosPorSerie[0];
+
   return (
     <main style={pageStyles}>
       <div style={containerStyles}>
@@ -180,10 +214,10 @@ export default function Trabalhos() {
             fontWeight: 700,
           }}
         >
-          Voltar para a pagina inicial
+          Voltar para a página inicial
         </Link>
 
-        <section style={cardStyles}>
+        <section style={heroStyles}>
           <span style={badgeStyles}>Trabalhos</span>
           <h1
             style={{
@@ -201,96 +235,128 @@ export default function Trabalhos() {
               maxWidth: "760px",
             }}
           >
-            Cada card mostra a cientista sorteada e os alunos responsaveis pelo
-            trabalho.
+            Escolha a série para visualizar apenas os trabalhos daquela turma.
           </p>
         </section>
 
-        <section style={gridStyles}>
-          {trabalhos.map((trabalho) => (
-            <article
-              key={trabalho.cientista}
-              style={{
-                background: "#ffffff",
-                borderRadius: "24px",
-                padding: "24px",
-                boxShadow: "0 14px 40px rgba(15, 23, 42, 0.08)",
-                borderTop: "6px solid #7c3aed",
-              }}
-            >
-              <div
+        <div style={tabsStyles}>
+          {trabalhosPorSerie.map((grupo) => {
+            const ativa = grupo.serie === serieAtiva;
+
+            return (
+              <button
+                key={grupo.serie}
+                type="button"
+                onClick={() => setSerieAtiva(grupo.serie)}
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  padding: "6px 12px",
+                  padding: "12px 18px",
                   borderRadius: "999px",
-                  background: "#f5f3ff",
-                  color: "#6d28d9",
+                  border: `2px solid ${grupo.cor}`,
+                  background: ativa ? grupo.cor : "#ffffff",
+                  color: ativa ? "#ffffff" : grupo.cor,
                   fontWeight: 700,
-                  marginBottom: "16px",
+                  cursor: "pointer",
+                  boxShadow: ativa
+                    ? "0 12px 24px rgba(15, 23, 42, 0.14)"
+                    : "none",
                 }}
               >
-                <span>{trabalho.emoji}</span>
-                <span>{trabalho.categoria}</span>
-              </div>
+                {grupo.serie}
+              </button>
+            );
+          })}
+        </div>
 
-              <h2 style={{ fontSize: "1.45rem", marginBottom: "10px" }}>
-                {trabalho.cientista}
-              </h2>
-              <p style={{ color: "#475569", marginBottom: "18px" }}>
-                {trabalho.pais}
-              </p>
+        <section key={grupoAtivo.serie} style={{ marginBottom: "32px" }}>
+          <div
+            style={{
+              background: "#ffffff",
+              borderRadius: "24px",
+              padding: "28px",
+              marginBottom: "20px",
+              boxShadow: "0 14px 40px rgba(15, 23, 42, 0.08)",
+              borderTop: `6px solid ${grupoAtivo.cor}`,
+            }}
+          >
+            <h2 style={{ fontSize: "2rem", marginBottom: "10px" }}>
+              {grupoAtivo.serie}
+            </h2>
+            <p style={{ color: "#475569" }}>
+              {grupoAtivo.trabalhos.length} cientistas listadas.
+            </p>
+          </div>
 
-              <div
+          <div style={gridStyles}>
+            {grupoAtivo.trabalhos.map((trabalho) => (
+              <article
+                key={trabalho.cientista}
                 style={{
-                  background: "#f8fafc",
-                  borderRadius: "18px",
-                  padding: "16px",
+                  background: "#ffffff",
+                  borderRadius: "24px",
+                  padding: "24px",
+                  boxShadow: "0 14px 40px rgba(15, 23, 42, 0.08)",
+                  borderTop: `6px solid ${grupoAtivo.cor}`,
                 }}
               >
-                <strong
-                  style={{
-                    display: "block",
-                    marginBottom: "12px",
-                    color: "#0f172a",
-                  }}
-                ></strong>
+                <h3 style={{ fontSize: "1.35rem", marginBottom: "10px" }}>
+                  {trabalho.cientista}
+                </h3>
+                <p style={{ color: "#475569", marginBottom: "18px" }}>
+                  {trabalho.pais}
+                </p>
 
-                {trabalho.alunos.length > 0 ? (
-                  trabalho.alunos.map((aluno) => (
+                <div
+                  style={{
+                    background: "#f8fafc",
+                    borderRadius: "18px",
+                    padding: "16px",
+                  }}
+                >
+                  <strong
+                    style={{
+                      display: "block",
+                      marginBottom: "12px",
+                      color: "#0f172a",
+                    }}
+                  >
+                    Alunos
+                  </strong>
+
+                  {trabalho.alunos.length > 0 ? (
+                    trabalho.alunos.map((aluno) => (
+                      <div
+                        key={aluno}
+                        style={{
+                          padding: "10px 12px",
+                          marginBottom: "8px",
+                          borderRadius: "12px",
+                          background: "#ffffff",
+                          border: "1px solid #e2e8f0",
+                          color: "#1e293b",
+                          fontWeight: 600,
+                        }}
+                      >
+                        {aluno}
+                      </div>
+                    ))
+                  ) : (
                     <div
-                      key={aluno}
                       style={{
                         padding: "10px 12px",
-                        marginBottom: "8px",
                         borderRadius: "12px",
-                        background: "#ffffff",
-                        border: "1px solid #e2e8f0",
-                        color: "#1e293b",
+                        background: "#fff1f2",
+                        border: "1px solid #fecdd3",
+                        color: "#be123c",
                         fontWeight: 600,
                       }}
                     >
-                      {aluno}
+                      Alunos a definir
                     </div>
-                  ))
-                ) : (
-                  <div
-                    style={{
-                      padding: "10px 12px",
-                      borderRadius: "12px",
-                      background: "#fff1f2",
-                      border: "1px solid #fecdd3",
-                      color: "#be123c",
-                      fontWeight: 600,
-                    }}
-                  >
-                    Sem alunos definidos ate o momento
-                  </div>
-                )}
-              </div>
-            </article>
-          ))}
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
       </div>
     </main>
