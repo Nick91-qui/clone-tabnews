@@ -6,7 +6,7 @@ const trabalhos = [
     pais: "Brasil",
     categoria: "Brasileira",
     emoji: "🇧🇷",
-    alunos: ["Isaque Magri", "Gustavo", "Adrian"],
+    alunos: ["Isaque M", "Gustavo", "Adrian"],
   },
   {
     cientista: "Sonia Guimaraes",
@@ -41,7 +41,7 @@ const trabalhos = [
     pais: "EUA",
     categoria: "Negra",
     emoji: "✊🏿",
-    alunos: ["Nycolle", "Juliana Burgos"],
+    alunos: ["Nycolle", "Juliana B"],
   },
   {
     cientista: "Mae C. Jemison",
@@ -83,7 +83,7 @@ const trabalhos = [
     pais: "Alemanha",
     categoria: "Invisibilizada",
     emoji: "🟡",
-    alunos: ["Victor", "Ana Luiza Efgen"],
+    alunos: ["Victor", "Ana L E"],
   },
   {
     cientista: "Kathleen Lonsdale",
@@ -111,7 +111,7 @@ const trabalhos = [
     pais: "Africa do Sul",
     categoria: "Negra",
     emoji: "✊🏿",
-    alunos: ["Gabriel", "Maria Luiza de Freitas"],
+    alunos: ["Gabriel", "Maria L F"],
   },
   {
     cientista: "Ellen Swallow Richards",
@@ -132,8 +132,7 @@ const trabalhos = [
 const pageStyles = {
   minHeight: "100vh",
   padding: "40px 20px 80px",
-  background:
-    "linear-gradient(180deg, #fff7ed 0%, #ffffff 40%, #eff6ff 100%)",
+  background: "linear-gradient(180deg, #fff7ed 0%, #ffffff 40%, #eff6ff 100%)",
   fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
   color: "#0f172a",
 };
@@ -256,9 +255,7 @@ export default function Trabalhos() {
                     marginBottom: "12px",
                     color: "#0f172a",
                   }}
-                >
-                  Alunos
-                </strong>
+                ></strong>
 
                 {trabalho.alunos.length > 0 ? (
                   trabalho.alunos.map((aluno) => (
