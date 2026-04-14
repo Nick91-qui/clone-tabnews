@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState } from "react";
 
 const trabalhosPorSerie = [
   {
@@ -182,6 +183,13 @@ const badgeStyles = {
   marginBottom: "16px",
 };
 
+const tabsStyles = {
+  display: "flex",
+  gap: "12px",
+  flexWrap: "wrap",
+  marginBottom: "24px",
+};
+
 const gridStyles = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
@@ -189,6 +197,11 @@ const gridStyles = {
 };
 
 export default function Trabalhos() {
+  const [serieAtiva, setSerieAtiva] = useState(trabalhosPorSerie[0].serie);
+  const grupoAtivo =
+    trabalhosPorSerie.find((grupo) => grupo.serie === serieAtiva) ||
+    trabalhosPorSerie[0];
+
   return (
     <main style={pageStyles}>
       <div style={containerStyles}>
@@ -223,104 +236,129 @@ export default function Trabalhos() {
               maxWidth: "760px",
             }}
           >
-            A lista abaixo mostra as cientistas de cada série e os alunos
-            responsáveis por cada trabalho.
+            Escolha a série para visualizar apenas os trabalhos daquela turma.
           </p>
         </section>
 
-        {trabalhosPorSerie.map((grupo) => (
-          <section key={grupo.serie} style={{ marginBottom: "32px" }}>
-            <div
-              style={{
-                background: "#ffffff",
-                borderRadius: "24px",
-                padding: "28px",
-                marginBottom: "20px",
-                boxShadow: "0 14px 40px rgba(15, 23, 42, 0.08)",
-                borderTop: `6px solid ${grupo.cor}`,
-              }}
-            >
-              <h2 style={{ fontSize: "2rem", marginBottom: "10px" }}>
-                {grupo.serie}
-              </h2>
-              <p style={{ color: "#475569" }}>
-                {grupo.trabalhos.length} cientistas listadas.
-              </p>
-            </div>
+        <div style={tabsStyles}>
+          {trabalhosPorSerie.map((grupo) => {
+            const ativa = grupo.serie === serieAtiva;
 
-            <div style={gridStyles}>
-              {grupo.trabalhos.map((trabalho) => (
-                <article
-                  key={trabalho.cientista}
+            return (
+              <button
+                key={grupo.serie}
+                type="button"
+                onClick={() => setSerieAtiva(grupo.serie)}
+                style={{
+                  padding: "12px 18px",
+                  borderRadius: "999px",
+                  border: `2px solid ${grupo.cor}`,
+                  background: ativa ? grupo.cor : "#ffffff",
+                  color: ativa ? "#ffffff" : grupo.cor,
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  boxShadow: ativa
+                    ? "0 12px 24px rgba(15, 23, 42, 0.14)"
+                    : "none",
+                }}
+              >
+                {grupo.serie}
+              </button>
+            );
+          })}
+        </div>
+
+        <section key={grupoAtivo.serie} style={{ marginBottom: "32px" }}>
+          <div
+            style={{
+              background: "#ffffff",
+              borderRadius: "24px",
+              padding: "28px",
+              marginBottom: "20px",
+              boxShadow: "0 14px 40px rgba(15, 23, 42, 0.08)",
+              borderTop: `6px solid ${grupoAtivo.cor}`,
+            }}
+          >
+            <h2 style={{ fontSize: "2rem", marginBottom: "10px" }}>
+              {grupoAtivo.serie}
+            </h2>
+            <p style={{ color: "#475569" }}>
+              {grupoAtivo.trabalhos.length} cientistas listadas.
+            </p>
+          </div>
+
+          <div style={gridStyles}>
+            {grupoAtivo.trabalhos.map((trabalho) => (
+              <article
+                key={trabalho.cientista}
+                style={{
+                  background: "#ffffff",
+                  borderRadius: "24px",
+                  padding: "24px",
+                  boxShadow: "0 14px 40px rgba(15, 23, 42, 0.08)",
+                  borderTop: `6px solid ${grupoAtivo.cor}`,
+                }}
+              >
+                <h3 style={{ fontSize: "1.35rem", marginBottom: "10px" }}>
+                  {trabalho.cientista}
+                </h3>
+                <p style={{ color: "#475569", marginBottom: "18px" }}>
+                  {trabalho.pais}
+                </p>
+
+                <div
                   style={{
-                    background: "#ffffff",
-                    borderRadius: "24px",
-                    padding: "24px",
-                    boxShadow: "0 14px 40px rgba(15, 23, 42, 0.08)",
-                    borderTop: `6px solid ${grupo.cor}`,
+                    background: "#f8fafc",
+                    borderRadius: "18px",
+                    padding: "16px",
                   }}
                 >
-                  <h3 style={{ fontSize: "1.35rem", marginBottom: "10px" }}>
-                    {trabalho.cientista}
-                  </h3>
-                  <p style={{ color: "#475569", marginBottom: "18px" }}>
-                    {trabalho.pais}
-                  </p>
-
-                  <div
+                  <strong
                     style={{
-                      background: "#f8fafc",
-                      borderRadius: "18px",
-                      padding: "16px",
+                      display: "block",
+                      marginBottom: "12px",
+                      color: "#0f172a",
                     }}
                   >
-                    <strong
-                      style={{
-                        display: "block",
-                        marginBottom: "12px",
-                        color: "#0f172a",
-                      }}
-                    >
-                      Alunos
-                    </strong>
+                    Alunos
+                  </strong>
 
-                    {trabalho.alunos.length > 0 ? (
-                      trabalho.alunos.map((aluno) => (
-                        <div
-                          key={aluno}
-                          style={{
-                            padding: "10px 12px",
-                            marginBottom: "8px",
-                            borderRadius: "12px",
-                            background: "#ffffff",
-                            border: "1px solid #e2e8f0",
-                            color: "#1e293b",
-                            fontWeight: 600,
-                          }}
-                        >
-                          {aluno}
-                        </div>
-                      ))
-                    ) : (
+                  {trabalho.alunos.length > 0 ? (
+                    trabalho.alunos.map((aluno) => (
                       <div
+                        key={aluno}
                         style={{
                           padding: "10px 12px",
+                          marginBottom: "8px",
                           borderRadius: "12px",
-                          background: "#fff1f2",
-                          border: "1px solid #fecdd3",
-                          color: "#be123c",
+                          background: "#ffffff",
+                          border: "1px solid #e2e8f0",
+                          color: "#1e293b",
                           fontWeight: 600,
                         }}
                       >
-                        Alunos a definir
+                        {aluno}
                       </div>
-                    )}
-                  </div>
-                </article>
-              ))}
-            </div>
-          </section>
-        ))}
+                    ))
+                  ) : (
+                    <div
+                      style={{
+                        padding: "10px 12px",
+                        borderRadius: "12px",
+                        background: "#fff1f2",
+                        border: "1px solid #fecdd3",
+                        color: "#be123c",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Alunos a definir
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
       </div>
     </main>
   );
