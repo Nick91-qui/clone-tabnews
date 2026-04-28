@@ -17,10 +17,6 @@ const aulas = [
         titulo: "Mudanças de Estado Físico da Matéria",
         url: "https://docs.google.com/presentation/d/1LdMHkvKO11-50SZNScVZudKUHiB27G_5/edit?usp=sharing&ouid=106621926854032891171&rtpof=true&sd=true",
       },
-      {
-        titulo: "Diluição de soluções",
-        url: "https://drive.google.com/file/d/1EL2vQhujFNxoB9ClPR6z-e1ddsU8kZIr/view?usp=sharing",
-      },
     ],
   },
   {
@@ -42,6 +38,15 @@ const aulas = [
       {
         titulo: "Exercícios de Estequiometria",
         url: "https://docs.google.com/presentation/d/1nhKLugzWoFHS966UFJeeeOO7VFmS8JgF/edit?usp=sharing&ouid=106621926854032891171&rtpof=true&sd=true",
+      },
+
+      {
+        titulo: "Solubilidade",
+        url: "https://docs.google.com/presentation/d/1FUAR7-dhB6eIrNqjFRxDySJAxd2OKAJX/edit?usp=sharing&ouid=106621926854032891171&rtpof=true&sd=true",
+      },
+      {
+        titulo: "Diluição de soluções",
+        url: "https://drive.google.com/file/d/1EL2vQhujFNxoB9ClPR6z-e1ddsU8kZIr/view?usp=sharing",
       },
     ],
   },
