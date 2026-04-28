@@ -383,6 +383,12 @@ export default function Trabalhos() {
                     <td>👥 Grupo</td>
                     <td>Todos os integrantes devem participar do vídeo</td>
                   </tr>
+                  <tr>
+                    <td>🕵️ Fontes</td>
+                    <td>
+                      Apresente as fontes das quais obtiveram as informações.
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </Card>
