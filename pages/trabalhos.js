@@ -108,7 +108,7 @@ const grupos1serie = [
     num: 18,
     cientista: "Edith Flanigen",
     pais: "🇺🇸 EUA",
-    integrantes: [],
+    integrantes: ["Anna"],
   },
 ];
 
