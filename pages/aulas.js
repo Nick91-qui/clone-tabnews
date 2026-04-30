@@ -41,7 +41,7 @@ const aulas = [
       },
 
       {
-        titulo: "Solubilidade",
+        titulo: "Solubilidade: CS",
         url: "https://docs.google.com/presentation/d/1FUAR7-dhB6eIrNqjFRxDySJAxd2OKAJX/edit?usp=sharing&ouid=106621926854032891171&rtpof=true&sd=true",
       },
       {
